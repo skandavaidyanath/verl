@@ -409,7 +409,7 @@ class DataParallelPPOActor(BasePPOActor):
 
                     if "old_log_probs" not in data.keys():
                         print("Fully online and does not use kl in reward, do not need to calculate old_log prob")
-                        old_log_prob = log_prob.detach().clone()
+                        old_log_prob = log_prob.detach()
                     else:  # use_kl or gu is not 1
                         old_log_prob = data["old_log_probs"]
 
